@@ -7,7 +7,7 @@ func _on_play_pressed():
 
 
 func _on_character_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Game Level/character_select.tscn")
 
 
 func _on_exit_pressed():

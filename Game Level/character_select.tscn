@@ -1,40 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkt0i28764qa4"]
+[gd_scene load_steps=12 format=3 uid="uid://bkt0i28764qa4"]
 
-[ext_resource type="Texture2D" uid="uid://b0lln4odh5qk5" path="res://Art/coal.png" id="1_qitqq"]
+[ext_resource type="Script" path="res://Game Level/character_select.gd" id="1_eo54c"]
+[ext_resource type="Texture2D" uid="uid://b0lln4odh5qk5" path="res://Art/carbon.png" id="1_qitqq"]
 [ext_resource type="Texture2D" uid="uid://b156ueupy57lq" path="res://Art/iron.png" id="2_ycv2h"]
+[ext_resource type="Texture2D" uid="uid://bkn525isv8sui" path="res://Art/chlorine.png" id="3_6owel"]
 [ext_resource type="Texture2D" uid="uid://b5dqgt77nosd8" path="res://Art/oxygen.png" id="3_ksk5s"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0gtw4"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_qitqq")
-}],
-"loop": true,
-"name": &"Coal",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_ycv2h")
-}],
-"loop": true,
-"name": &"Iron",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"Mercury",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_ksk5s")
-}],
-"loop": true,
-"name": &"Oxygen",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://cogrfgugedimg" path="res://Art/gold.png" id="4_ac63a"]
+[ext_resource type="Texture2D" uid="uid://d17yyeclo555a" path="res://Art/helium.png" id="5_vmxpq"]
+[ext_resource type="Texture2D" uid="uid://cd78usjf6by6y" path="res://Art/hydrogen.png" id="6_bdbkh"]
+[ext_resource type="Texture2D" uid="uid://cprlhmwhdxu8e" path="res://Art/lithium.png" id="8_y81ej"]
+[ext_resource type="Texture2D" uid="uid://dk5pym6o63pjs" path="res://Art/mercury.png" id="9_hn04i"]
+[ext_resource type="Texture2D" uid="uid://dogne02lhjdbb" path="res://Art/silver.png" id="11_gvkps"]
 
 [node name="CharacterSelect" type="Control"]
 layout_mode = 3
@@ -43,7 +19,100 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_eo54c")
 
-[node name="CharacterChange" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_0gtw4")
-animation = &"Oxygen"
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.7778, 16.0526)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 306.0
+offset_top = 137.0
+offset_right = 483.0
+offset_bottom = 160.0
+scale = Vector2(3.04785, 3.04785)
+text = "Choose your Character"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 512.0
+offset_right = 286.0
+offset_bottom = 535.0
+scale = Vector2(3.04785, 3.04785)
+text = "Carbon"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 297.0
+offset_top = 275.0
+offset_right = 513.0
+offset_bottom = 359.0
+scale = Vector2(2.58585, 2.58585)
+columns = 5
+
+[node name="Carbon" type="Button" parent="GridContainer" groups=["Characters"]]
+layout_mode = 2
+icon = ExtResource("1_qitqq")
+
+[node name="Chlorine" type="Button" parent="GridContainer" groups=["Characters"]]
+layout_mode = 2
+icon = ExtResource("3_6owel")
+
+[node name="Gold" type="Button" parent="GridContainer" groups=["Characters"]]
+layout_mode = 2
+icon = ExtResource("4_ac63a")
+
+[node name="Helium" type="Button" parent="GridContainer" groups=["Characters"]]
+layout_mode = 2
+icon = ExtResource("5_vmxpq")
+
+[node name="Hydrogen" type="Button" parent="GridContainer" groups=["Characters"]]
+layout_mode = 2
+icon = ExtResource("6_bdbkh")
+
+[node name="Iron" type="Button" parent="GridContainer" groups=["Characters"]]
+layout_mode = 2
+icon = ExtResource("2_ycv2h")
+
+[node name="Lithium" type="Button" parent="GridContainer" groups=["Characters"]]
+layout_mode = 2
+icon = ExtResource("8_y81ej")
+
+[node name="Mercury" type="Button" parent="GridContainer" groups=["Characters"]]
+layout_mode = 2
+icon = ExtResource("9_hn04i")
+
+[node name="Oxygen" type="Button" parent="GridContainer" groups=["Characters"]]
+layout_mode = 2
+icon = ExtResource("3_ksk5s")
+
+[node name="Silver" type="Button" parent="GridContainer" groups=["Characters"]]
+layout_mode = 2
+icon = ExtResource("11_gvkps")
+
+[node name="Select Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 725.0
+offset_top = 513.0
+offset_right = 779.0
+offset_bottom = 544.0
+scale = Vector2(2.5188, 2.5188)
+text = "Select"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(582, 328)
+
+[connection signal="pressed" from="GridContainer/Carbon" to="." method="_on_coal_pressed"]
+[connection signal="pressed" from="GridContainer/Chlorine" to="." method="_on_chlorine_pressed"]
+[connection signal="pressed" from="GridContainer/Gold" to="." method="_on_gold_pressed"]
+[connection signal="pressed" from="GridContainer/Helium" to="." method="_on_helium_pressed"]
+[connection signal="pressed" from="GridContainer/Hydrogen" to="." method="_on_hydrogen_pressed"]
+[connection signal="pressed" from="GridContainer/Iron" to="." method="_on_iron_pressed"]
+[connection signal="pressed" from="GridContainer/Lithium" to="." method="_on_lithium_pressed"]
+[connection signal="pressed" from="GridContainer/Mercury" to="." method="_on_mercury_pressed"]
+[connection signal="pressed" from="GridContainer/Oxygen" to="." method="_on_oxygen_pressed"]
+[connection signal="pressed" from="GridContainer/Silver" to="." method="_on_silver_pressed"]
