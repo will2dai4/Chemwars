@@ -15,6 +15,5 @@ func _physics_process(delta):
 	position.x += speed * x_multiplier * delta
 	position.y += speed * y_multiplier * delta
 
-	
 func _on_collision(body):
 	pass

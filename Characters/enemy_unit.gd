@@ -4,7 +4,9 @@ const MAX_HEALTH = 60
 
 @export var default_move_speed:float = 100
 @export var screen_size:Vector2
+@export var idle_time:float = 3
 @onready var gun = $Gun
+@onready var timer = $Timer
 
 var bullet = preload("res://Characters/bullet.tscn")
 var acting_move_speed = default_move_speed
@@ -12,6 +14,7 @@ var health = MAX_HEALTH
 
 func _ready():
 	screen_size = get_viewport_rect().size
+	timer.start(idle_time)
 
 func _physics_process(delta):
 	var x_movement = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -50,5 +53,10 @@ func set_health_bar():
 	$HealthLabel.text = "hp: " + str(health)
 
 func _on_area_2d_area_entered(area):
-	area.queue_free()
-	damage(10)
+	if area.get_parent() != self:
+		area.queue_free()
+		damage(10)
+
+func _on_timer_timeout():
+	shoot()
+	timer.start()
