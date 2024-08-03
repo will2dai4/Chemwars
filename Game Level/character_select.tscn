@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://67f7v5rgvbn6"]
+[gd_scene load_steps=12 format=3 uid="uid://c1ot33i1o4cwf"]
 
 [ext_resource type="Script" path="res://Game Level/character_select.gd" id="1_eo54c"]
 [ext_resource type="Texture2D" uid="uid://b0lln4odh5qk5" path="res://Art/carbon.png" id="1_qitqq"]

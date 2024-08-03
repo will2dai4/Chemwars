@@ -1,10 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://djbuypgeycf0x"]
+[gd_scene load_steps=15 format=3 uid="uid://djbuypgeycf0x"]
 
 [ext_resource type="Script" path="res://Characters/PlayableCharacter.gd" id="1_jd5mo"]
+[ext_resource type="Texture2D" uid="uid://b156ueupy57lq" path="res://Art/iron.png" id="2_2ko4i"]
+[ext_resource type="Texture2D" uid="uid://dogne02lhjdbb" path="res://Art/silver.png" id="2_032oa"]
 [ext_resource type="Texture2D" uid="uid://b0lln4odh5qk5" path="res://Art/carbon.png" id="2_50kjx"]
 [ext_resource type="Texture2D" uid="uid://b8oslxhwgit3c" path="res://Art/gun.png" id="3_q4bmn"]
 [ext_resource type="Texture2D" uid="uid://bkn525isv8sui" path="res://Art/chlorine.png" id="4_brm3i"]
+[ext_resource type="Texture2D" uid="uid://bvv5il3sno7uq" path="res://Art/diamond.png" id="4_whctb"]
 [ext_resource type="Texture2D" uid="uid://cogrfgugedimg" path="res://Art/gold.png" id="5_6l6dm"]
+[ext_resource type="Texture2D" uid="uid://d17yyeclo555a" path="res://Art/helium.png" id="5_8xpij"]
+[ext_resource type="Texture2D" uid="uid://cd78usjf6by6y" path="res://Art/hydrogen.png" id="6_fxk52"]
+[ext_resource type="Texture2D" uid="uid://cprlhmwhdxu8e" path="res://Art/lithium.png" id="7_iynyh"]
+[ext_resource type="Texture2D" uid="uid://dk5pym6o63pjs" path="res://Art/mercury.png" id="8_c8jst"]
+[ext_resource type="Texture2D" uid="uid://b5dqgt77nosd8" path="res://Art/oxygen.png" id="12_vj7qq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5c1d"]
 size = Vector2(20, 19.5)
@@ -17,11 +25,35 @@ script = ExtResource("1_jd5mo")
 [node name="Coal" type="Sprite2D" parent="Marker2D"]
 texture = ExtResource("2_50kjx")
 
+[node name="Iron" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("2_2ko4i")
+
+[node name="Diamond" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("4_whctb")
+
+[node name="Helium" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("5_8xpij")
+
+[node name="Hydrogen" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("6_fxk52")
+
+[node name="Lithium" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("7_iynyh")
+
+[node name="Mercury" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("8_c8jst")
+
+[node name="Silver" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("2_032oa")
+
 [node name="Chlorine" type="Sprite2D" parent="Marker2D"]
 texture = ExtResource("4_brm3i")
 
 [node name="Gold" type="Sprite2D" parent="Marker2D"]
 texture = ExtResource("5_6l6dm")
+
+[node name="Oxygen" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("12_vj7qq")
 
 [node name="Gun" type="Sprite2D" parent="Marker2D"]
 texture = ExtResource("3_q4bmn")

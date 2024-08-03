@@ -7,7 +7,7 @@ var characters = []
 func _ready():
 	for nameOfCharacter in get_tree().get_nodes_in_group("Characters"):
 		characters.append(nameOfCharacter)
-		
+	
 func _process(delta):
 	label_2.text = characters[Global.currently_selected].name
 
@@ -49,7 +49,7 @@ func _on_oxygen_pressed():
 
 func _on_silver_pressed():
 	Global.currently_selected = 9
-
+	
 
 func _on_select_button_pressed():
 	get_tree().change_scene_to_file("res://Game Level/main_menu.tscn")

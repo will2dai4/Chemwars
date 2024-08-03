@@ -8,6 +8,14 @@ const MAX_HEALTH = 100
 @onready var coal_sprite = $Marker2D/Coal
 @onready var chlorine_sprite = $Marker2D/Chlorine
 @onready var gold_sprite = $Marker2D/Gold
+@onready var iron_sprite = $Marker2D/Iron
+@onready var diamond_sprite = $Marker2D/Diamond
+@onready var helium_sprite = $Marker2D/Helium
+@onready var hydrogen_sprite = $Marker2D/Hydrogen
+@onready var lithium_sprite = $Marker2D/Lithium
+@onready var mercury_sprite = $Marker2D/Mercury
+@onready var silver_sprite = $Marker2D/Silver
+@onready var oxygen_sprite = $Marker2D/Oxygen
 @onready var gun = $Marker2D/Gun
 
 var bullet = preload("res://Characters/bullet.tscn")
@@ -22,18 +30,35 @@ func _ready():
 	coal_sprite.visible = false
 	chlorine_sprite.visible = false
 	gold_sprite.visible = false
+	iron_sprite.visible = false
+	diamond_sprite.visible = false
+	helium_sprite.visible = false
+	hydrogen_sprite.visible = false
+	lithium_sprite.visible = false
+	mercury_sprite.visible = false
+	silver_sprite.visible = false
+	oxygen_sprite.visible = false
 	
 	# Set the appropriate sprite based on the global variable
 	match Global.currently_selected:
 		0:
 			coal_sprite.visible = true
-			print("0")
 		1:
 			chlorine_sprite.visible = true
-			print("1")
 		2:
 			gold_sprite.visible = true
-			print("2")
+		3:
+			helium_sprite.visible = true
+		4:
+			hydrogen_sprite.visible = true
+		5:
+			iron_sprite.visible = true
+		6:
+			lithium_sprite.visible = true
+		7:
+			mercury_sprite.visible = true
+		8:
+			oxygen_sprite.visible = true
 
 func _physics_process(delta):
 	var x_movement = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")

@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://dokgpi2m7fdly"]
+
+[ext_resource type="Script" path="res://Characters/PlayableCharacter.gd" id="1_uu0me"]
+[ext_resource type="Texture2D" uid="uid://b0lln4odh5qk5" path="res://Art/carbon.png" id="2_i1w0i"]
+[ext_resource type="Texture2D" uid="uid://b8oslxhwgit3c" path="res://Art/gun.png" id="3_b3ljn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5c1d"]
+size = Vector2(20, 19.5)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_uu0me")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Iron" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("2_i1w0i")
+
+[node name="Gun" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("3_b3ljn")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.75)
+shape = SubResource("RectangleShape2D_b5c1d")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -14.0
+offset_top = -16.0
+offset_right = -10.0
+offset_bottom = 11.0
+scale = Vector2(7.39809, 0.153176)
+step = 1.0
+rounded = true
+fill_mode = 1
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="."]
+offset_left = -7.0
+offset_top = -23.0
+offset_right = 33.0
+scale = Vector2(0.315302, 0.315302)
+text = "hp:"
