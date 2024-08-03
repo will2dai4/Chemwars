@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://xvx6tlv8sfl3"]
+[gd_scene load_steps=8 format=3 uid="uid://xvx6tlv8sfl3"]
 
 [ext_resource type="Texture2D" uid="uid://de0vg5cue7jne" path="res://Art/Tilesets/dirt.png" id="1_oxqio"]
 [ext_resource type="Texture2D" uid="uid://bfc07bcwy6oqm" path="res://Art/Tilesets/walls.png" id="2_8gt1k"]
 [ext_resource type="PackedScene" uid="uid://djbuypgeycf0x" path="res://Characters/coal.tscn" id="3_3ufr1"]
+[ext_resource type="PackedScene" uid="uid://bgqvc1ew8ixno" path="res://Characters/enemy_unit.tscn" id="4_hckr3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dt8ui"]
 texture = ExtResource("1_oxqio")
@@ -232,3 +233,6 @@ position = Vector2(568, 319)
 zoom = Vector2(2.5, 2.5)
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
+
+[node name="Enemy Unit" parent="." instance=ExtResource("4_hckr3")]
+position = Vector2(526, 143)

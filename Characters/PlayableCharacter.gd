@@ -118,3 +118,9 @@ func get_current_visible_sprite():
 		if child.visible:
 			return child
 	return null
+
+
+func _on_area_2d_area_entered(area):
+	if area.name == "bullet_area":
+		area.get_parent().queue_free()
+		damage(20)
