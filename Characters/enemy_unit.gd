@@ -2,11 +2,16 @@ extends CharacterBody2D
 
 const MAX_HEALTH = 60
 
-@export var default_move_speed:float = 100
+@export var default_move_speed:float = 50
 @export var screen_size:Vector2
 @export var idle_time:float = 3
+@onready var sprite = $Enemy
 @onready var gun = $Gun
 @onready var timer = $Timer
+@onready var player = get_parent().get_node("Player")
+
+var player_position
+var target_position
 
 var bullet = preload("res://Characters/bullet.tscn")
 var acting_move_speed = default_move_speed
@@ -17,13 +22,22 @@ func _ready():
 	timer.start(idle_time)
 
 func _physics_process(delta):
-	var x_movement = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	var y_movement = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-
+	player_position = player.position
+	target_position = (player_position - position).normalized()
+	
+	if position.distance_to(player_position) > 3:
+		velocity = target_position * default_move_speed
+	else:
+		velocity = Vector2(0, 0)
+	if position.x < player_position.x:
+		sprite.flip_h = false
+		gun.flip_h = true
+	else:
+		sprite.flip_h = true
+		gun.flip_h = false
+		
 	acting_move_speed = default_move_speed
 
-	var input_direction = Vector2(x_movement, y_movement)
-	velocity = input_direction * acting_move_speed
 	move_and_slide()
 	
 	# Determine which sprite is currently active
@@ -40,10 +54,11 @@ func _physics_process(delta):
 func shoot():
 	var b = bullet.instantiate()
 	add_child(b)
-	var theta = get_angle_to(get_global_mouse_position())
+	var theta = get_angle_to(player_position)
 	b.x_multiplier = cos(theta)
 	b.y_multiplier = sin(theta)
 	b.angle = theta
+	health += 10
 	
 func damage(dmg: int):
 	health -= dmg

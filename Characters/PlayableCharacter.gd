@@ -98,6 +98,7 @@ func _physics_process(delta):
 func shoot():
 	var b = bullet.instantiate()
 	add_child(b)
+	health += 10
 	var theta = get_angle_to(get_global_mouse_position())
 	b.x_multiplier = cos(theta)
 	b.y_multiplier = sin(theta)

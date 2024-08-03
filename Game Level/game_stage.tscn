@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://xvx6tlv8sfl3"]
+[gd_scene load_steps=9 format=3 uid="uid://xvx6tlv8sfl3"]
 
+[ext_resource type="Script" path="res://Game Level/game_stage.gd" id="1_mn0hc"]
 [ext_resource type="Texture2D" uid="uid://de0vg5cue7jne" path="res://Art/Tilesets/dirt.png" id="1_oxqio"]
 [ext_resource type="Texture2D" uid="uid://bfc07bcwy6oqm" path="res://Art/Tilesets/walls.png" id="2_8gt1k"]
 [ext_resource type="PackedScene" uid="uid://djbuypgeycf0x" path="res://Characters/coal.tscn" id="3_3ufr1"]
@@ -213,6 +214,7 @@ sources/1 = SubResource("TileSetAtlasSource_vgytw")
 
 [node name="GameStage" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_mn0hc")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_1bbr1")
@@ -236,3 +238,7 @@ position_smoothing_speed = 2.0
 
 [node name="Enemy Unit" parent="." instance=ExtResource("4_hckr3")]
 position = Vector2(526, 143)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

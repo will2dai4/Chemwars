@@ -3,7 +3,7 @@ extends Area2D
 @onready var sprite = $Sprite2D
 
 var angle = 0
-var speed:float = 800
+var speed:float = 500
 var x_multiplier:float = 0
 var y_multiplier:float = 1
 var rotated = false
