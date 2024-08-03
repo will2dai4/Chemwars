@@ -13,5 +13,4 @@ script = ExtResource("1_rsmtc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="Coal" type="Sprite2D" parent="."]
-position = Vector2(508, 264)
 texture = ExtResource("2_e3d28")
