@@ -13,8 +13,8 @@ func _physics_process(delta):
 	var y_movement = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	
 	if x_movement != 0 and y_movement != 0:
-		x_movement *= sqrt(2)
-		y_movement *= sqrt(2)
+		x_movement *= 1/sqrt(2)
+		y_movement *= 1/sqrt(2)
 		
 	var input_direction = Vector2(x_movement, y_movement)
 	
