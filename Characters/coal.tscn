@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://djbuypgeycf0x"]
+[gd_scene load_steps=8 format=3 uid="uid://djbuypgeycf0x"]
 
 [ext_resource type="Script" path="res://Characters/PlayableCharacter.gd" id="1_jd5mo"]
+[ext_resource type="Texture2D" uid="uid://b156ueupy57lq" path="res://Art/iron.png" id="2_2ko4i"]
 [ext_resource type="Texture2D" uid="uid://b0lln4odh5qk5" path="res://Art/carbon.png" id="2_50kjx"]
 [ext_resource type="Texture2D" uid="uid://b8oslxhwgit3c" path="res://Art/gun.png" id="3_q4bmn"]
+[ext_resource type="Texture2D" uid="uid://bkn525isv8sui" path="res://Art/chlorine.png" id="4_brm3i"]
+[ext_resource type="Texture2D" uid="uid://cogrfgugedimg" path="res://Art/gold.png" id="5_6l6dm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5c1d"]
 size = Vector2(20, 19.5)
@@ -14,6 +17,15 @@ script = ExtResource("1_jd5mo")
 
 [node name="Coal" type="Sprite2D" parent="Marker2D"]
 texture = ExtResource("2_50kjx")
+
+[node name="Iron" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("2_2ko4i")
+
+[node name="Chlorine" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("4_brm3i")
+
+[node name="Gold" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("5_6l6dm")
 
 [node name="Gun" type="Sprite2D" parent="Marker2D"]
 texture = ExtResource("3_q4bmn")
