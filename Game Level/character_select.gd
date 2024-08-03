@@ -50,3 +50,7 @@ func _on_oxygen_pressed():
 
 func _on_silver_pressed():
 	currently_selected = 9
+
+
+func _on_select_button_pressed():
+	get_tree().change_scene_to_file("res://Game Level/main_menu.tscn")
