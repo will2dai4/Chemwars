@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://djbuypgeycf0x"]
+
+[ext_resource type="Script" path="res://Characters/coal.gd" id="1_rsmtc"]
+[ext_resource type="Texture2D" uid="uid://b0lln4odh5qk5" path="res://Art/coal.png" id="2_e3d28"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_rsmtc")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Coal" type="Sprite2D" parent="."]
+position = Vector2(508, 264)
+texture = ExtResource("2_e3d28")
