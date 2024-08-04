@@ -50,6 +50,7 @@ step = 1.0
 rounded = true
 fill_mode = 1
 show_percentage = false
+metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="."]
 
