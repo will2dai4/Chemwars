@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const MAX_HEALTH = 100
+const TICK = 0.5
 
 const element_list = ["coal", "chlorine", "gold", "helium", "hydrogen", "iron", "lithium", "mercury", "oxygen", "sodium", "boron", "silver"]
 
@@ -21,6 +22,8 @@ const element_list = ["coal", "chlorine", "gold", "helium", "hydrogen", "iron", 
 @onready var sodium_sprite = $Marker2D/Sodium
 @onready var boron_sprite = $Marker2D/Boron
 @onready var gun = $Marker2D/Gun
+
+@onready var fire_timer = $FireTimer
 
 var bullet = load("res://Characters/bullet.tscn").instantiate()
 var diagonal_move_speed:float = default_move_speed / 2
@@ -114,8 +117,8 @@ func _physics_process(delta):
 func shoot():
 	var b = bullet.new_bullet(element_list[Global.currently_selected])
 	add_child(b)
-	health += 10
 	var theta = get_angle_to(get_global_mouse_position())
+
 	b.x_multiplier = cos(theta)
 	b.y_multiplier = sin(theta)
 	b.angle = theta
@@ -136,8 +139,17 @@ func get_current_visible_sprite():
 			return child
 	return null
 
+func get_type():
+	return element_list[Global.currently_selected]
 
 func _on_area_2d_area_entered(area):
-	if area.get_parent() != self:
-		area.queue_free()
-		damage(10)
+	if area.get_parent() != self: 
+		if area.get_name() == "Bullet":
+			area.queue_free()
+			damage(10)
+		if area.get_name() == "Fire":
+			fire_timer.start(TICK)
+
+
+func _on_fire_timer_timeout():
+	damage(5)

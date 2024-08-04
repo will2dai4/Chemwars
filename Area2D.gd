@@ -19,7 +19,7 @@ const my_scene = preload("res://Characters/bullet.tscn")
 var Btype = "regbullet"
 
 var angle = 1
-var speed:float = 300
+var speed:float = 100
 var x_multiplier:float = 0
 var y_multiplier:float = 1
 var rotated = false
@@ -80,7 +80,7 @@ static func new_bullet(Btype: String):
 	var new_bullet = my_scene.instantiate()
 	new_bullet.Btype = Btype
 	print(Btype)
-	print()
+
 	return new_bullet
 
 func _physics_process(delta):
@@ -92,7 +92,8 @@ func _physics_process(delta):
 
 func _on_area_entered(area):
 	if area.get_name() == "Bullet":
-		
+		if (get_parent().get_type() == "boron" and area.get_parent().get_type() == "hydrogen") or (area.get_parent().get_type() == "boron" and get_parent().get_type() == "hydrogen"):
+			get_parent().get_parent().create_fire(area.global_position)
 		area.queue_free()
 		queue_free()
 
