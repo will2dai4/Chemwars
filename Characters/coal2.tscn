@@ -1,0 +1,105 @@
+[gd_scene load_steps=18 format=3 uid="uid://cfbnptylklcmh"]
+
+[ext_resource type="Script" path="res://Characters/PlayableCharacter.gd" id="1_6by6y"]
+[ext_resource type="Texture2D" uid="uid://b0lln4odh5qk5" path="res://Art/carbon.png" id="2_6d1dx"]
+[ext_resource type="Texture2D" uid="uid://b156ueupy57lq" path="res://Art/iron.png" id="3_dleyt"]
+[ext_resource type="Texture2D" uid="uid://bvv5il3sno7uq" path="res://Art/diamond.png" id="4_f6web"]
+[ext_resource type="Texture2D" uid="uid://d17yyeclo555a" path="res://Art/helium.png" id="5_wp5dd"]
+[ext_resource type="Texture2D" uid="uid://cd78usjf6by6y" path="res://Art/hydrogen.png" id="6_0x2qv"]
+[ext_resource type="Texture2D" uid="uid://cprlhmwhdxu8e" path="res://Art/lithium.png" id="7_l4uxi"]
+[ext_resource type="Texture2D" uid="uid://dk5pym6o63pjs" path="res://Art/mercury.png" id="8_bavjb"]
+[ext_resource type="Texture2D" uid="uid://dogne02lhjdbb" path="res://Art/silver.png" id="9_m1t65"]
+[ext_resource type="Texture2D" uid="uid://bkn525isv8sui" path="res://Art/chlorine.png" id="10_7hbwa"]
+[ext_resource type="Texture2D" uid="uid://cogrfgugedimg" path="res://Art/gold.png" id="11_6ethh"]
+[ext_resource type="Texture2D" uid="uid://b5dqgt77nosd8" path="res://Art/oxygen.png" id="12_22ucb"]
+[ext_resource type="Texture2D" uid="uid://b8oslxhwgit3c" path="res://Art/gun.png" id="13_xqrxp"]
+[ext_resource type="Texture2D" uid="uid://dkkhlwtj2i338" path="res://Game Level/boron.png" id="14_01i4d"]
+[ext_resource type="Texture2D" uid="uid://co2m4hv5dnt3g" path="res://Game Level/sodium.png" id="15_i4w6v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5c1d"]
+size = Vector2(20, 19.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pmj4k"]
+radius = 13.0384
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_6by6y")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Coal" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("2_6d1dx")
+
+[node name="Iron" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("3_dleyt")
+
+[node name="Diamond" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("4_f6web")
+
+[node name="Helium" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("5_wp5dd")
+
+[node name="Hydrogen" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("6_0x2qv")
+
+[node name="Lithium" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("7_l4uxi")
+
+[node name="Mercury" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("8_bavjb")
+
+[node name="Silver" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("9_m1t65")
+
+[node name="Chlorine" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("10_7hbwa")
+
+[node name="Gold" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("11_6ethh")
+
+[node name="Oxygen" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("12_22ucb")
+
+[node name="Gun" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("13_xqrxp")
+flip_h = true
+
+[node name="Boron" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("14_01i4d")
+
+[node name="Sodium" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("15_i4w6v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.75)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_b5c1d")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -14.0
+offset_top = -16.0
+offset_right = -10.0
+offset_bottom = 11.0
+scale = Vector2(7.39809, 0.153176)
+step = 1.0
+rounded = true
+fill_mode = 1
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="."]
+offset_left = -7.0
+offset_top = -23.0
+offset_right = 33.0
+scale = Vector2(0.315302, 0.315302)
+text = "hp:"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_pmj4k")
+
+[node name="FireTimer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]
