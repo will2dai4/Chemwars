@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dr1lq8q17ghl3"]
+[gd_scene load_steps=6 format=3 uid="uid://dcc00aql75pkk"]
 
-[ext_resource type="Script" path="res://Area2D.gd" id="1_ncbgx"]
-[ext_resource type="Texture2D" uid="uid://oecryg56m38k" path="res://Art/bullet.png" id="2_sgfwi"]
-[ext_resource type="Texture2D" uid="uid://cogrfgugedimg" path="res://Art/gold.png" id="3_s8hke"]
+[ext_resource type="Script" path="res://Area2D.gd" id="1_kship"]
+[ext_resource type="Texture2D" uid="uid://oecryg56m38k" path="res://Art/bullet.png" id="2_jd3nf"]
+[ext_resource type="Texture2D" uid="uid://cogrfgugedimg" path="res://Art/gold.png" id="3_eoiof"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0lexd"]
 size = Vector2(9, 3)
@@ -12,10 +12,10 @@ size = Vector2(7, 3)
 
 [node name="Bullet" type="Area2D"]
 visibility_layer = 3
-script = ExtResource("1_ncbgx")
+script = ExtResource("1_kship")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_sgfwi")
+texture = ExtResource("2_jd3nf")
 
 [node name="BulletArea" type="Area2D" parent="."]
 
@@ -28,6 +28,6 @@ position = Vector2(1.5, -0.5)
 shape = SubResource("RectangleShape2D_1sipe")
 
 [node name="DeadBullet" type="Sprite2D" parent="."]
-texture = ExtResource("3_s8hke")
+texture = ExtResource("3_eoiof")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
