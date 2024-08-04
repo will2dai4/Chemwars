@@ -25,7 +25,7 @@ func _physics_process(delta):
 	player_position = player.position
 	target_position = (player_position - position).normalized()
 	
-	if position.distance_to(player_position) > 3:
+	if position.distance_to(player_position) > 100:
 		velocity = target_position * default_move_speed
 	else:
 		velocity = Vector2(0, 0)

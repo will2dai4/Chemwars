@@ -15,5 +15,8 @@ func _physics_process(delta):
 	position.x += speed * x_multiplier * delta
 	position.y += speed * y_multiplier * delta
 
-func _on_collision(body):
-	pass
+
+func _on_area_entered(area):
+	if area.get_name() == "Bullet":
+		queue_free()
+		area.queue_free()
