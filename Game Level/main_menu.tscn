@@ -35,7 +35,8 @@ offset_left = 393.0
 offset_top = 290.0
 offset_right = 756.0
 offset_bottom = 364.0
-text = "Play"
+theme_override_font_sizes/font_size = 44
+text = "Battle..."
 
 [node name="Character" type="Button" parent="."]
 layout_mode = 2
@@ -51,7 +52,7 @@ offset_left = 581.0
 offset_top = 380.0
 offset_right = 755.0
 offset_bottom = 437.0
-text = "Exit"
+text = "Quit Game"
 
 [node name="Node3D" type="Node3D" parent="."]
 
