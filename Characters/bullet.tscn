@@ -1,8 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://dr1lq8q17ghl3"]
+[gd_scene load_steps=16 format=3 uid="uid://dr1lq8q17ghl3"]
 
 [ext_resource type="Script" path="res://Area2D.gd" id="1_ncbgx"]
+[ext_resource type="Texture2D" uid="uid://6p40n8tc8vfx" path="res://Art/carbon2.png" id="2_lsq13"]
 [ext_resource type="Texture2D" uid="uid://oecryg56m38k" path="res://Art/bullet.png" id="2_sgfwi"]
-[ext_resource type="Texture2D" uid="uid://cogrfgugedimg" path="res://Art/gold.png" id="3_s8hke"]
+[ext_resource type="Texture2D" uid="uid://wn7bmxhya25p" path="res://Art/boron2.png" id="3_rbf5a"]
+[ext_resource type="Texture2D" uid="uid://4vqa1dahi4mm" path="res://Art/chlorine2.png" id="4_f1l5d"]
+[ext_resource type="Texture2D" uid="uid://dvg4uppyvw5vn" path="res://Art/gold2.png" id="5_in7ii"]
+[ext_resource type="Texture2D" uid="uid://sj76vx16k44j" path="res://Art/helium2.png" id="6_kdih2"]
+[ext_resource type="Texture2D" uid="uid://ck60pm0brfyu6" path="res://Art/hydrogen2.png" id="7_j7n7y"]
+[ext_resource type="Texture2D" uid="uid://demdtauvljfd3" path="res://Art/iron2.png" id="8_0817l"]
+[ext_resource type="Texture2D" uid="uid://d30ic37eciuck" path="res://Art/lithium2.png" id="9_0u38i"]
+[ext_resource type="Texture2D" uid="uid://cj4vq2wtb5ns5" path="res://Art/mercury2.png" id="10_0hy38"]
+[ext_resource type="Texture2D" uid="uid://bsf4grivemmy0" path="res://Art/oxygen2.png" id="11_6l8jr"]
+[ext_resource type="Texture2D" uid="uid://ygnh4mr7ms5h" path="res://Art/sodium2.png" id="12_ki5it"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0lexd"]
 size = Vector2(9, 3)
@@ -14,7 +24,40 @@ size = Vector2(7, 3)
 visibility_layer = 3
 script = ExtResource("1_ncbgx")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="CarbonB" type="Sprite2D" parent="."]
+texture = ExtResource("2_lsq13")
+
+[node name="BoronB" type="Sprite2D" parent="."]
+texture = ExtResource("3_rbf5a")
+
+[node name="ChlorineB" type="Sprite2D" parent="."]
+texture = ExtResource("4_f1l5d")
+
+[node name="GoldB" type="Sprite2D" parent="."]
+texture = ExtResource("5_in7ii")
+
+[node name="HeliumB" type="Sprite2D" parent="."]
+texture = ExtResource("6_kdih2")
+
+[node name="HydrogenB" type="Sprite2D" parent="."]
+texture = ExtResource("7_j7n7y")
+
+[node name="IronB" type="Sprite2D" parent="."]
+texture = ExtResource("8_0817l")
+
+[node name="LithiumB" type="Sprite2D" parent="."]
+texture = ExtResource("9_0u38i")
+
+[node name="MercuryB" type="Sprite2D" parent="."]
+texture = ExtResource("10_0hy38")
+
+[node name="OxygenB" type="Sprite2D" parent="."]
+texture = ExtResource("11_6l8jr")
+
+[node name="SodiumB" type="Sprite2D" parent="."]
+texture = ExtResource("12_ki5it")
+
+[node name="RegBullet" type="Sprite2D" parent="."]
 texture = ExtResource("2_sgfwi")
 
 [node name="BulletArea" type="Area2D" parent="."]
@@ -26,8 +69,5 @@ shape = SubResource("RectangleShape2D_0lexd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, -0.5)
 shape = SubResource("RectangleShape2D_1sipe")
-
-[node name="DeadBullet" type="Sprite2D" parent="."]
-texture = ExtResource("3_s8hke")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

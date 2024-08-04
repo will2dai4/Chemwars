@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 const MAX_HEALTH = 100
 
+const element_list = ["coal", "chlorine", "gold", "helium", "hydrogen", "iron", "lithium", "mercury", "oxygen", "sodium", "boron", "silver"]
+
 @export var default_move_speed:float = 200
 @export var screen_size:Vector2
 @onready var marker2d = $Marker2D
@@ -20,7 +22,7 @@ const MAX_HEALTH = 100
 @onready var boron_sprite = $Marker2D/Boron
 @onready var gun = $Marker2D/Gun
 
-var bullet = preload("res://Characters/bullet.tscn")
+var bullet = load("res://Characters/bullet.tscn").instantiate()
 var diagonal_move_speed:float = default_move_speed / 2
 var acting_move_speed = default_move_speed
 var health = MAX_HEALTH
@@ -110,7 +112,7 @@ func _physics_process(delta):
 		get_tree().change_scene_to_file("res://Game Level/end_screen.tscn")
 	
 func shoot():
-	var b = bullet.instantiate()
+	var b = bullet.new_bullet(element_list[Global.currently_selected])
 	add_child(b)
 	health += 10
 	var theta = get_angle_to(get_global_mouse_position())
