@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6fpt7vvvh0k1"]
+
+[ext_resource type="Script" path="res://Game Level/end_screen.gd" id="1_4b721"]
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4b721")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1170.0
+offset_bottom = 658.0
+color = Color(0.36, 0, 0, 1)
+
+[node name="Retry" type="Button" parent="."]
+layout_mode = 0
+offset_left = 409.0
+offset_top = 334.0
+offset_right = 741.0
+offset_bottom = 372.0
+text = "Retry"
+
+[node name="ExitGame" type="Button" parent="."]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 401.0
+offset_right = 723.0
+offset_bottom = 432.0
+text = "Exit Game"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(575, 325)
+zoom = Vector2(2, 2)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 534.0
+offset_top = 241.0
+offset_right = 617.0
+offset_bottom = 264.0
+text = "You Died..."
+
+[connection signal="pressed" from="Retry" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="ExitGame" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="ExitGame" to="." method="_on_exit_game_pressed"]

@@ -3,7 +3,7 @@ extends Area2D
 @onready var sprite = $Sprite2D
 
 var angle = 0
-var speed:float = 500
+var speed:float = 100
 var x_multiplier:float = 0
 var y_multiplier:float = 1
 var rotated = false
@@ -15,8 +15,8 @@ func _physics_process(delta):
 	position.x += speed * x_multiplier * delta
 	position.y += speed * y_multiplier * delta
 
-
 func _on_area_entered(area):
 	if area.get_name() == "Bullet":
-		queue_free()
 		area.queue_free()
+		queue_free()
+

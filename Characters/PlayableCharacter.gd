@@ -95,6 +95,9 @@ func _physics_process(delta):
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
 	
+	if health <= 0:
+		get_tree().change_scene_to_file("res://Game Level/end_screen.tscn")
+	
 func shoot():
 	var b = bullet.instantiate()
 	add_child(b)
