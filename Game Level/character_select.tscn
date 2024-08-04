@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://67f7v5rgvbn6"]
+[gd_scene load_steps=15 format=3 uid="uid://67f7v5rgvbn6"]
 
 [ext_resource type="Script" path="res://Game Level/character_select.gd" id="1_eo54c"]
 [ext_resource type="Texture2D" uid="uid://b0lln4odh5qk5" path="res://Art/carbon.png" id="1_qitqq"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://cprlhmwhdxu8e" path="res://Art/lithium.png" id="8_y81ej"]
 [ext_resource type="Texture2D" uid="uid://dk5pym6o63pjs" path="res://Art/mercury.png" id="9_hn04i"]
 [ext_resource type="Texture2D" uid="uid://dogne02lhjdbb" path="res://Art/silver.png" id="11_gvkps"]
+[ext_resource type="Texture2D" uid="uid://dkkhlwtj2i338" path="res://Game Level/boron.png" id="13_8i5m5"]
+[ext_resource type="Texture2D" uid="uid://co2m4hv5dnt3g" path="res://Game Level/sodium.png" id="14_fp1mn"]
 
 [node name="CharacterSelect" type="Control"]
 layout_mode = 3
@@ -54,12 +56,12 @@ text = "Carbon"
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 297.0
-offset_top = 221.0
-offset_right = 513.0
-offset_bottom = 305.0
+offset_left = 247.0
+offset_top = 211.0
+offset_right = 507.0
+offset_bottom = 295.0
 scale = Vector2(2.58585, 2.58585)
-columns = 5
+columns = 6
 
 [node name="Carbon" type="Button" parent="GridContainer" groups=["Characters"]]
 layout_mode = 2
@@ -111,6 +113,16 @@ layout_mode = 2
 icon = ExtResource("11_gvkps")
 metadata/_edit_group_ = true
 
+[node name="Hydrogen2" type="Button" parent="GridContainer" groups=["Characters"]]
+layout_mode = 2
+icon = ExtResource("13_8i5m5")
+metadata/_edit_group_ = true
+
+[node name="Hydrogen3" type="Button" parent="GridContainer" groups=["Characters"]]
+layout_mode = 2
+icon = ExtResource("14_fp1mn")
+metadata/_edit_group_ = true
+
 [node name="Select Button" type="Button" parent="."]
 layout_mode = 0
 offset_left = 755.0
@@ -134,4 +146,6 @@ zoom = Vector2(2, 2)
 [connection signal="pressed" from="GridContainer/Mercury" to="." method="_on_mercury_pressed"]
 [connection signal="pressed" from="GridContainer/Oxygen" to="." method="_on_oxygen_pressed"]
 [connection signal="pressed" from="GridContainer/Silver" to="." method="_on_silver_pressed"]
+[connection signal="pressed" from="GridContainer/Hydrogen2" to="." method="_on_hydrogen_pressed"]
+[connection signal="pressed" from="GridContainer/Hydrogen3" to="." method="_on_hydrogen_pressed"]
 [connection signal="pressed" from="Select Button" to="." method="_on_select_button_pressed"]

@@ -47,8 +47,16 @@ func _on_oxygen_pressed():
 	Global.currently_selected = 8
 
 
-func _on_silver_pressed():
+func _on_sodium_pressed():
 	Global.currently_selected = 9
+	
+	
+func _on_boron_pressed():
+	Global.currently_selected = 10
+	
+
+func _on_silver_pressed():
+	Global.currently_selected = 11
 	
 
 func _on_select_button_pressed():

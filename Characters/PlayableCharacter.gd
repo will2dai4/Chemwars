@@ -16,6 +16,8 @@ const MAX_HEALTH = 100
 @onready var mercury_sprite = $Marker2D/Mercury
 @onready var silver_sprite = $Marker2D/Silver
 @onready var oxygen_sprite = $Marker2D/Oxygen
+@onready var sodium_sprite = $Marker2D/Sodium
+@onready var boron_sprite = $Marker2D/Boron
 @onready var gun = $Marker2D/Gun
 
 var bullet = preload("res://Characters/bullet.tscn")
@@ -36,7 +38,8 @@ func _ready():
 	hydrogen_sprite.visible = false
 	lithium_sprite.visible = false
 	mercury_sprite.visible = false
-	silver_sprite.visible = false
+	boron_sprite.visible = false
+	sodium_sprite.visible = false
 	oxygen_sprite.visible = false
 	
 	# Set the appropriate sprite based on the global variable
@@ -59,6 +62,13 @@ func _ready():
 			mercury_sprite.visible = true
 		8:
 			oxygen_sprite.visible = true
+		9:
+			sodium_sprite.visible = true
+		10:
+			boron_sprite.visible = true
+		11:
+			silver_sprite.visible = true
+		
 
 func _physics_process(delta):
 	var x_movement = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
