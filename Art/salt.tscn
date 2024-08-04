@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://btb1u1g25fdcf"]
+
+[ext_resource type="Texture2D" uid="uid://b1dlinvmfpxrw" path="res://Game Level/nacl.png" id="1_lk1f5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8rk6"]
+size = Vector2(27, 15)
+
+[node name="Salt" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 3.5)
+shape = SubResource("RectangleShape2D_d8rk6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lk1f5")
