@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b8oslxhwgit3c" path="res://Art/gun.png" id="3_ncelu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_53g5j"]
-radius = 15.0333
+radius = 13.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_df5af"]
 radius = 14.0
