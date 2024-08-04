@@ -2,11 +2,13 @@ extends CharacterBody2D
 
 const MAX_HEALTH = 60
 const element_list = ["coal", "chlorine", "gold", "helium", "hydrogen", "iron", "lithium", "mercury", "oxygen", "sodium", "boron", "silver"]
+const TICK = 0.5
 
 @export var default_move_speed:float = 50
 @export var screen_size:Vector2
 @export var idle_time:float = 3
 @onready var timer = $Timer
+@onready var fire_timer = $FireTimer
 @onready var player = get_parent().get_node("Player")
 
 @onready var coal_sprite = $Coal
@@ -53,7 +55,7 @@ func _ready():
 	
 	var rng = RandomNumberGenerator.new()
 	#var current = rng.randi_range(0, 11)
-	current = 10
+	current = 9
 	
 	match current:
 		0:
@@ -133,9 +135,10 @@ func get_type():
 	return element_list[current]
 
 func _on_area_2d_area_entered(area):
-	if area.get_parent() != self:
+	if area.get_parent() != self: 
 		area.queue_free()
 		damage(10)
+		
 
 func _on_timer_timeout():
 	shoot()
@@ -146,3 +149,7 @@ func get_current_visible_sprite():
 		if child.visible:
 			return child
 	return null
+
+
+func _on_fire_timer_timeout():
+	damage(5)

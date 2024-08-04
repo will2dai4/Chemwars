@@ -94,6 +94,8 @@ func _on_area_entered(area):
 	if area.get_name() == "Bullet":
 		if (get_parent().get_type() == "boron" and area.get_parent().get_type() == "hydrogen") or (area.get_parent().get_type() == "boron" and get_parent().get_type() == "hydrogen"):
 			get_parent().get_parent().create_fire(area.global_position)
+		if (get_parent().get_type() == "sodium" and area.get_parent().get_type() == "chlorine") or (area.get_parent().get_type() == "sodium" and get_parent().get_type() == "chlorine"):
+			get_parent().get_parent().create_salt(area.global_position)
 		area.queue_free()
 		queue_free()
 
