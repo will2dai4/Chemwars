@@ -1,19 +1,72 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgqvc1ew8ixno"]
+[gd_scene load_steps=18 format=3 uid="uid://bgqvc1ew8ixno"]
 
-[ext_resource type="Texture2D" uid="uid://d35pu4kws22co" path="res://Art/enemy.png" id="1_36qep"]
 [ext_resource type="Script" path="res://Characters/enemy_unit.gd" id="1_r083x"]
+[ext_resource type="Texture2D" uid="uid://b0lln4odh5qk5" path="res://Art/carbon.png" id="3_81lrw"]
 [ext_resource type="Texture2D" uid="uid://b8oslxhwgit3c" path="res://Art/gun.png" id="3_ncelu"]
+[ext_resource type="Texture2D" uid="uid://b156ueupy57lq" path="res://Art/iron.png" id="4_lrwjh"]
+[ext_resource type="Texture2D" uid="uid://bvv5il3sno7uq" path="res://Art/diamond.png" id="5_8at15"]
+[ext_resource type="Texture2D" uid="uid://d17yyeclo555a" path="res://Art/helium.png" id="6_b8xqm"]
+[ext_resource type="Texture2D" uid="uid://cd78usjf6by6y" path="res://Art/hydrogen.png" id="7_t7wn0"]
+[ext_resource type="Texture2D" uid="uid://cprlhmwhdxu8e" path="res://Art/lithium.png" id="8_l2fcn"]
+[ext_resource type="Texture2D" uid="uid://dk5pym6o63pjs" path="res://Art/mercury.png" id="9_jhk2r"]
+[ext_resource type="Texture2D" uid="uid://dogne02lhjdbb" path="res://Art/silver.png" id="10_qkoo6"]
+[ext_resource type="Texture2D" uid="uid://bkn525isv8sui" path="res://Art/chlorine.png" id="11_cslam"]
+[ext_resource type="Texture2D" uid="uid://cogrfgugedimg" path="res://Art/gold.png" id="12_wnxtr"]
+[ext_resource type="Texture2D" uid="uid://b5dqgt77nosd8" path="res://Art/oxygen.png" id="13_cschl"]
+[ext_resource type="Texture2D" uid="uid://dkkhlwtj2i338" path="res://Game Level/boron.png" id="14_bel6s"]
+[ext_resource type="Texture2D" uid="uid://co2m4hv5dnt3g" path="res://Game Level/sodium.png" id="15_kc1j7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_53g5j"]
-radius = 15.0333
+radius = 13.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rya80"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_df5af"]
+radius = 14.0
 
 [node name="Enemy Unit" type="CharacterBody2D"]
 script = ExtResource("1_r083x")
 
-[node name="Enemy" type="Sprite2D" parent="."]
-texture = ExtResource("1_36qep")
+[node name="Coal" type="Sprite2D" parent="."]
+texture = ExtResource("3_81lrw")
+
+[node name="Iron" type="Sprite2D" parent="."]
+texture = ExtResource("4_lrwjh")
+
+[node name="Diamond" type="Sprite2D" parent="."]
+texture = ExtResource("5_8at15")
+
+[node name="Helium" type="Sprite2D" parent="."]
+texture = ExtResource("6_b8xqm")
+
+[node name="Hydrogen" type="Sprite2D" parent="."]
+texture = ExtResource("7_t7wn0")
+
+[node name="Lithium" type="Sprite2D" parent="."]
+texture = ExtResource("8_l2fcn")
+
+[node name="Mercury" type="Sprite2D" parent="."]
+texture = ExtResource("9_jhk2r")
+
+[node name="Silver" type="Sprite2D" parent="."]
+texture = ExtResource("10_qkoo6")
+
+[node name="Chlorine" type="Sprite2D" parent="."]
+texture = ExtResource("11_cslam")
+
+[node name="Gold" type="Sprite2D" parent="."]
+texture = ExtResource("12_wnxtr")
+
+[node name="Oxygen" type="Sprite2D" parent="."]
+texture = ExtResource("13_cschl")
+
+[node name="Gun2" type="Sprite2D" parent="."]
+texture = ExtResource("3_ncelu")
+flip_h = true
+
+[node name="Boron" type="Sprite2D" parent="."]
+texture = ExtResource("14_bel6s")
+
+[node name="Sodium" type="Sprite2D" parent="."]
+texture = ExtResource("15_kc1j7")
 
 [node name="Gun" type="Sprite2D" parent="."]
 position = Vector2(9, 4)
@@ -28,8 +81,7 @@ shape = SubResource("CircleShape2D_53g5j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
-scale = Vector2(1.5, 1.5)
-shape = SubResource("RectangleShape2D_rya80")
+shape = SubResource("CircleShape2D_df5af")
 
 [node name="HealthLabel" type="Label" parent="."]
 offset_left = -8.0
@@ -50,7 +102,6 @@ step = 1.0
 rounded = true
 fill_mode = 1
 show_percentage = false
-metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="."]
 

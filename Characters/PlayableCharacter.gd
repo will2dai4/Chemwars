@@ -41,6 +41,7 @@ func _ready():
 	boron_sprite.visible = false
 	sodium_sprite.visible = false
 	oxygen_sprite.visible = false
+	silver_sprite.visible = false
 	
 	# Set the appropriate sprite based on the global variable
 	match Global.currently_selected:

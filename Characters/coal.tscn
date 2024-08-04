@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://djbuypgeycf0x"]
+[gd_scene load_steps=18 format=3 uid="uid://djbuypgeycf0x"]
 
 [ext_resource type="Script" path="res://Characters/PlayableCharacter.gd" id="1_jd5mo"]
 [ext_resource type="Texture2D" uid="uid://b156ueupy57lq" path="res://Art/iron.png" id="2_2ko4i"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://cprlhmwhdxu8e" path="res://Art/lithium.png" id="7_iynyh"]
 [ext_resource type="Texture2D" uid="uid://dk5pym6o63pjs" path="res://Art/mercury.png" id="8_c8jst"]
 [ext_resource type="Texture2D" uid="uid://b5dqgt77nosd8" path="res://Art/oxygen.png" id="12_vj7qq"]
+[ext_resource type="Texture2D" uid="uid://dkkhlwtj2i338" path="res://Game Level/boron.png" id="14_cyglg"]
+[ext_resource type="Texture2D" uid="uid://co2m4hv5dnt3g" path="res://Game Level/sodium.png" id="15_kffn4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5c1d"]
 size = Vector2(20, 19.5)
@@ -61,6 +63,12 @@ texture = ExtResource("12_vj7qq")
 [node name="Gun" type="Sprite2D" parent="Marker2D"]
 texture = ExtResource("3_q4bmn")
 flip_h = true
+
+[node name="Boron" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("14_cyglg")
+
+[node name="Sodium" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("15_kffn4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.75)
