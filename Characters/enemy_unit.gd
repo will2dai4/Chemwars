@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const MAX_HEALTH = 60
+const element_list = ["coal", "chlorine", "gold", "helium", "hydrogen", "iron", "lithium", "mercury", "oxygen", "sodium", "boron", "silver"]
 
 @export var default_move_speed:float = 50
 @export var screen_size:Vector2
@@ -28,6 +29,7 @@ var player_position
 var target_position
 
 var bullet = preload("res://Characters/bullet.tscn")
+var current = 0
 var acting_move_speed = default_move_speed
 var health = MAX_HEALTH
 
@@ -50,7 +52,8 @@ func _ready():
 	silver_sprite.visible = false
 	
 	var rng = RandomNumberGenerator.new()
-	var current = rng.randi_range(0, 11)
+	#var current = rng.randi_range(0, 11)
+	current = 10
 	
 	match current:
 		0:
@@ -125,6 +128,9 @@ func damage(dmg: int):
 func set_health_bar():
 	$HealthBar.value = health
 	$HealthLabel.text = "hp: " + str(health)
+
+func get_type():
+	return element_list[current]
 
 func _on_area_2d_area_entered(area):
 	if area.get_parent() != self:
